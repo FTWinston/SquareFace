@@ -30,16 +30,17 @@
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // DisplayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(256, 256);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "DisplayForm";
             this.Text = "SquareFace";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.DisplayForm_Load);
             this.ResumeLayout(false);
 
         }

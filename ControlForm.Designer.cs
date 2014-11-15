@@ -30,15 +30,15 @@
         {
             this.trackEyeSep = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.trackEyeScale = new System.Windows.Forms.TrackBar();
-            this.label2 = new System.Windows.Forms.Label();
-            this.trackEyeTilt = new System.Windows.Forms.TrackBar();
-            this.label3 = new System.Windows.Forms.Label();
-            this.trackEyeX = new System.Windows.Forms.TrackBar();
-            this.label4 = new System.Windows.Forms.Label();
-            this.trackEyeY = new System.Windows.Forms.TrackBar();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.trackEyeY = new System.Windows.Forms.TrackBar();
+            this.trackEyeX = new System.Windows.Forms.TrackBar();
+            this.trackEyeTilt = new System.Windows.Forms.TrackBar();
+            this.trackEyeScale = new System.Windows.Forms.TrackBar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,12 +50,13 @@
             this.trackMouthCurve = new System.Windows.Forms.TrackBar();
             this.trackMouthTilt = new System.Windows.Forms.TrackBar();
             this.trackMouthWidth = new System.Windows.Forms.TrackBar();
+            this.btnRandom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackEyeSep)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackEyeScale)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackEyeTilt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackEyeX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackEyeY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackEyeX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackEyeTilt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackEyeScale)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackMouthY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackMouthX)).BeginInit();
@@ -74,7 +75,7 @@
             this.trackEyeSep.TabIndex = 0;
             this.trackEyeSep.TickFrequency = 10;
             this.trackEyeSep.Value = 50;
-            this.trackEyeSep.Scroll += new System.EventHandler(this.trackEyeSep_Scroll);
+            this.trackEyeSep.ValueChanged += new System.EventHandler(this.trackEyeSep_Scroll);
             // 
             // groupBox1
             // 
@@ -95,47 +96,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Eyes";
             // 
-            // label1
+            // label5
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Separation";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 229);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Offset Y";
             // 
-            // trackEyeScale
+            // label4
             // 
-            this.trackEyeScale.LargeChange = 10;
-            this.trackEyeScale.Location = new System.Drawing.Point(70, 70);
-            this.trackEyeScale.Maximum = 100;
-            this.trackEyeScale.Name = "trackEyeScale";
-            this.trackEyeScale.Size = new System.Drawing.Size(169, 45);
-            this.trackEyeScale.TabIndex = 0;
-            this.trackEyeScale.TickFrequency = 10;
-            this.trackEyeScale.Value = 50;
-            this.trackEyeScale.Scroll += new System.EventHandler(this.trackEyeScale_Scroll);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Scale";
-            // 
-            // trackEyeTilt
-            // 
-            this.trackEyeTilt.LargeChange = 10;
-            this.trackEyeTilt.Location = new System.Drawing.Point(70, 121);
-            this.trackEyeTilt.Maximum = 100;
-            this.trackEyeTilt.Minimum = -100;
-            this.trackEyeTilt.Name = "trackEyeTilt";
-            this.trackEyeTilt.Size = new System.Drawing.Size(169, 45);
-            this.trackEyeTilt.TabIndex = 0;
-            this.trackEyeTilt.TickFrequency = 10;
-            this.trackEyeTilt.Scroll += new System.EventHandler(this.trackEyeTilt_Scroll);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 178);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Offset X";
             // 
             // label3
             // 
@@ -146,26 +123,23 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Tilt";
             // 
-            // trackEyeX
+            // label2
             // 
-            this.trackEyeX.LargeChange = 10;
-            this.trackEyeX.Location = new System.Drawing.Point(70, 172);
-            this.trackEyeX.Maximum = 100;
-            this.trackEyeX.Minimum = -100;
-            this.trackEyeX.Name = "trackEyeX";
-            this.trackEyeX.Size = new System.Drawing.Size(169, 45);
-            this.trackEyeX.TabIndex = 0;
-            this.trackEyeX.TickFrequency = 10;
-            this.trackEyeX.Scroll += new System.EventHandler(this.trackEyeX_Scroll);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Scale";
             // 
-            // label4
+            // label1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 178);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Offset X";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Separation";
             // 
             // trackEyeY
             // 
@@ -177,16 +151,43 @@
             this.trackEyeY.Size = new System.Drawing.Size(169, 45);
             this.trackEyeY.TabIndex = 0;
             this.trackEyeY.TickFrequency = 10;
-            this.trackEyeY.Scroll += new System.EventHandler(this.trackEyeY_Scroll);
+            this.trackEyeY.ValueChanged += new System.EventHandler(this.trackEyeY_Scroll);
             // 
-            // label5
+            // trackEyeX
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 229);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Offset Y";
+            this.trackEyeX.LargeChange = 10;
+            this.trackEyeX.Location = new System.Drawing.Point(70, 172);
+            this.trackEyeX.Maximum = 100;
+            this.trackEyeX.Minimum = -100;
+            this.trackEyeX.Name = "trackEyeX";
+            this.trackEyeX.Size = new System.Drawing.Size(169, 45);
+            this.trackEyeX.TabIndex = 0;
+            this.trackEyeX.TickFrequency = 10;
+            this.trackEyeX.ValueChanged += new System.EventHandler(this.trackEyeX_Scroll);
+            // 
+            // trackEyeTilt
+            // 
+            this.trackEyeTilt.LargeChange = 10;
+            this.trackEyeTilt.Location = new System.Drawing.Point(70, 121);
+            this.trackEyeTilt.Maximum = 100;
+            this.trackEyeTilt.Minimum = -100;
+            this.trackEyeTilt.Name = "trackEyeTilt";
+            this.trackEyeTilt.Size = new System.Drawing.Size(169, 45);
+            this.trackEyeTilt.TabIndex = 0;
+            this.trackEyeTilt.TickFrequency = 10;
+            this.trackEyeTilt.ValueChanged += new System.EventHandler(this.trackEyeTilt_Scroll);
+            // 
+            // trackEyeScale
+            // 
+            this.trackEyeScale.LargeChange = 10;
+            this.trackEyeScale.Location = new System.Drawing.Point(70, 70);
+            this.trackEyeScale.Maximum = 100;
+            this.trackEyeScale.Name = "trackEyeScale";
+            this.trackEyeScale.Size = new System.Drawing.Size(169, 45);
+            this.trackEyeScale.TabIndex = 0;
+            this.trackEyeScale.TickFrequency = 10;
+            this.trackEyeScale.Value = 50;
+            this.trackEyeScale.ValueChanged += new System.EventHandler(this.trackEyeScale_Scroll);
             // 
             // groupBox2
             // 
@@ -262,7 +263,7 @@
             this.trackMouthY.Size = new System.Drawing.Size(169, 45);
             this.trackMouthY.TabIndex = 0;
             this.trackMouthY.TickFrequency = 10;
-            this.trackMouthY.Scroll += new System.EventHandler(this.trackMouthY_Scroll);
+            this.trackMouthY.ValueChanged += new System.EventHandler(this.trackMouthY_Scroll);
             // 
             // trackMouthX
             // 
@@ -274,7 +275,7 @@
             this.trackMouthX.Size = new System.Drawing.Size(169, 45);
             this.trackMouthX.TabIndex = 0;
             this.trackMouthX.TickFrequency = 10;
-            this.trackMouthX.Scroll += new System.EventHandler(this.trackMouthX_Scroll);
+            this.trackMouthX.ValueChanged += new System.EventHandler(this.trackMouthX_Scroll);
             // 
             // trackMouthCurve
             // 
@@ -286,7 +287,7 @@
             this.trackMouthCurve.Size = new System.Drawing.Size(169, 45);
             this.trackMouthCurve.TabIndex = 0;
             this.trackMouthCurve.TickFrequency = 10;
-            this.trackMouthCurve.Scroll += new System.EventHandler(this.trackMouthCurve_Scroll);
+            this.trackMouthCurve.ValueChanged += new System.EventHandler(this.trackMouthCurve_Scroll);
             // 
             // trackMouthTilt
             // 
@@ -298,7 +299,7 @@
             this.trackMouthTilt.Size = new System.Drawing.Size(169, 45);
             this.trackMouthTilt.TabIndex = 0;
             this.trackMouthTilt.TickFrequency = 10;
-            this.trackMouthTilt.Scroll += new System.EventHandler(this.trackMouthTilt_Scroll);
+            this.trackMouthTilt.ValueChanged += new System.EventHandler(this.trackMouthTilt_Scroll);
             // 
             // trackMouthWidth
             // 
@@ -310,13 +311,24 @@
             this.trackMouthWidth.TabIndex = 0;
             this.trackMouthWidth.TickFrequency = 10;
             this.trackMouthWidth.Value = 50;
-            this.trackMouthWidth.Scroll += new System.EventHandler(this.trackMouthWidth_Scroll);
+            this.trackMouthWidth.ValueChanged += new System.EventHandler(this.trackMouthWidth_Scroll);
+            // 
+            // btnRandom
+            // 
+            this.btnRandom.Location = new System.Drawing.Point(448, 292);
+            this.btnRandom.Name = "btnRandom";
+            this.btnRandom.Size = new System.Drawing.Size(75, 23);
+            this.btnRandom.TabIndex = 2;
+            this.btnRandom.Text = "Randomize";
+            this.btnRandom.UseVisualStyleBackColor = true;
+            this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
             // 
             // ControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 299);
+            this.ClientSize = new System.Drawing.Size(535, 333);
+            this.Controls.Add(this.btnRandom);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -325,10 +337,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackEyeSep)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackEyeScale)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackEyeTilt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackEyeX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackEyeY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackEyeX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackEyeTilt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackEyeScale)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackMouthY)).EndInit();
@@ -364,5 +376,6 @@
         private System.Windows.Forms.TrackBar trackMouthCurve;
         private System.Windows.Forms.TrackBar trackMouthTilt;
         private System.Windows.Forms.TrackBar trackMouthWidth;
+        private System.Windows.Forms.Button btnRandom;
     }
 }
