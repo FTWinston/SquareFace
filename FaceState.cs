@@ -14,7 +14,7 @@ namespace SquareFace
             fillColor = Color.LightGray;
             lineColor = Color.Black;
 
-            eyeSeparation = 0.5f;
+            eyeSeparation = 0.35f;
             eyeScale = 0.5f;
             eyeTilt = 0f;
             eyeOffsetX = 0f;
