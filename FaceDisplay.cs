@@ -60,12 +60,7 @@ namespace SquareFace
         {
             base.OnPaint(e);
 
-            DrawEyes(e.Graphics);
-            DrawMouth(e.Graphics);
-        }
-
-        private void DrawEyes(Graphics g)
-        {
+            // draw eyes
             float eyeWidth = ScalePositive(state.EyeScale, Width * 0.01f, Width * 0.1f);
             float eyeHeight = ScalePositive(state.EyeScale, Height * 0.01f, Height * 0.2f);
             float eyeCenterX = ScalePositive(state.EyeOffsetX, Width * 0.5f, Width - eyeWidth * 2);
@@ -77,24 +72,26 @@ namespace SquareFace
             float leftEyeY = ScaleReal2(state.EyeTilt, eyeHeight, eyeCenterY, eyeMaxY);
             float rightEyeY = ScaleReal2(-state.EyeTilt, eyeHeight, eyeCenterY, eyeMaxY);
 
-            g.FillEllipse(eyeBrush, leftEyeX - eyeWidth, leftEyeY - eyeHeight, eyeWidth * 2, eyeHeight * 2);
-            g.FillEllipse(eyeBrush, rightEyeX - eyeWidth, rightEyeY - eyeHeight, eyeWidth * 2, eyeHeight * 2);
-        }
+            e.Graphics.FillEllipse(eyeBrush, leftEyeX - eyeWidth, leftEyeY - eyeHeight, eyeWidth * 2, eyeHeight * 2);
+            e.Graphics.FillEllipse(eyeBrush, rightEyeX - eyeWidth, rightEyeY - eyeHeight, eyeWidth * 2, eyeHeight * 2);
+        
+            // draw mouth
+            float mouthCenterX = ScaleReal(state.MouthOffsetX, Width * 0.25f, Width * 0.75f) * 0.66f + eyeCenterX * 0.34f;
+            float mouthCenterY = ScaleReal(state.MouthOffsetY, eyeCenterY + eyeHeight + linePen.Width, Height - linePen.Width);
 
-        private void DrawMouth(Graphics g)
-        {
-            float mouthCenterX = Width * 0.5f + state.MouthOffsetX * Width * 0.25f;
-            float mouthCenterY = Height * 0.66667f + state.MouthOffsetY * Height * 0.25f;
+            float mouthLeftEndX = mouthCenterX - ScalePositive(state.MouthWidth, linePen.Width, mouthCenterX - linePen.Width);
+            float mouthRightEndX = mouthCenterX + ScalePositive(state.MouthWidth, linePen.Width, Width - mouthCenterX - linePen.Width);
 
-            float mouthWidth = state.MouthWidth * Width * 0.45f;
-            float mouthSkew = state.MouthTilt * Height * 0.25f;
+            float mouthLeftEndY = ScaleReal2(state.MouthTilt, leftEyeY + eyeHeight + linePen.Width, mouthCenterY, Height - linePen.Width);
+            float mouthRightEndY = ScaleReal2(-state.MouthTilt, rightEyeY + eyeHeight + linePen.Width, mouthCenterY, Height - linePen.Width);
+            
+            float mouthHeight = ScalePositive(state.MouthCurve, 0, Height * 0.25f);
 
-            float mouthHeight = state.MouthCurve * Height * 0.25f;
+            PointF leftEnd = new PointF(mouthLeftEndX, mouthLeftEndY), rightEnd = new PointF(mouthRightEndX, mouthRightEndY);
+            PointF leftMid = new PointF((mouthCenterX + mouthLeftEndX) * 0.5f, (mouthCenterY + mouthLeftEndY) * 0.5f - mouthHeight);
+            PointF rightMid = new PointF((mouthCenterX + mouthRightEndX) * 0.5f, (mouthCenterY + mouthRightEndY) * 0.5f - mouthHeight);
 
-            PointF leftEnd = new PointF(mouthCenterX - mouthWidth, mouthCenterY - mouthSkew), rightEnd = new PointF(mouthCenterX + mouthWidth, mouthCenterY + mouthSkew);
-            PointF leftMid = new PointF(mouthCenterX - mouthWidth * 0.5f, mouthCenterY - mouthSkew * 0.5f - mouthHeight), rightMid = new PointF(mouthCenterX + mouthWidth * 0.5f, mouthCenterY + mouthSkew * 0.5f - mouthHeight);
-
-            g.DrawBezier(linePen, leftEnd, leftMid, rightMid, rightEnd);
+            e.Graphics.DrawBezier(linePen, leftEnd, leftMid, rightMid, rightEnd);
         }
 
         private float ScaleReal(float val, float min, float max)
